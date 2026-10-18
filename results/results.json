@@ -1,0 +1,6 @@
+{
+  "setup": "1M PPO steps, 4 envs, seed 0, best checkpoint by raw eval reward; 100 deterministic episodes, seeds 1000-1099, discrete action space, Intel Mac CPU",
+  "baseline": {"mean_return": 256.3, "std_return": 33.7, "success_rate": 0.97, "main_fires_per_ep": 127.8, "side_fires_per_ep": 113.3},
+  "shaped":   {"mean_return": 244.6, "std_return": 41.7, "success_rate": 0.90, "main_fires_per_ep": 125.7, "side_fires_per_ep": 137.8},
+  "latency_ms_median": {"sb3_predict": 0.35, "onnx_runtime": 0.025, "speedup": 13.8}
+}
