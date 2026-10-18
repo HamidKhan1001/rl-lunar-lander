@@ -1,0 +1,7 @@
+{
+  "_note": "Hand-written sample states for trying the API. Not recorded from a real episode.",
+  "hovering_above_pad": [0.0, 1.0, 0.0, -0.1, 0.0, 0.0, 0.0, 0.0],
+  "falling_fast": [0.0, 0.6, 0.0, -0.9, 0.0, 0.0, 0.0, 0.0],
+  "tilted_right": [0.2, 0.8, 0.1, -0.3, -0.4, 0.1, 0.0, 0.0],
+  "touchdown": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0]
+}

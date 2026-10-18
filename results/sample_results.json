@@ -1,0 +1,7 @@
+{
+  "dummy": true,
+  "_note": "PLACEHOLDER values to show the report format. Replace with the output of `python -m src.benchmark`.",
+  "baseline": {"mean_return": 0.0, "success_rate": 0.0, "main_fires_per_ep": 0.0},
+  "shaped": {"mean_return": 0.0, "success_rate": 0.0, "main_fires_per_ep": 0.0},
+  "latency": {"sb3_ms": 0.0, "onnx_ms": 0.0}
+}

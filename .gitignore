@@ -1,0 +1,10 @@
+__pycache__/
+.venv/
+logs/
+models/
+videos/
+*.zip
+models_*/
+logs_*/
+runs/
+.pytest_cache/
