@@ -83,11 +83,20 @@ No trained model yet? `python -m src.dev` builds a barely-trained one in `models
 
 ## Results
 
-Not filled in yet. The 1M-step runs (shaped vs. baseline) are being trained now, and I'll put the measured numbers here once `src.benchmark` has run on both. `results/sample_results.json` is a zeroed placeholder showing the format, not real data.
+1M PPO steps, 4 envs, seed 0, best checkpoint by raw eval reward. Evaluated on 100 deterministic episodes (seeds 1000-1099) of the unshaped discrete environment. "Success" means a return of 200 or more. Raw numbers are in [results/results.json](results/results.json).
+
+| | Mean return | Success | Main-engine firings / episode | Side-engine firings / episode |
+| --- | --- | --- | --- | --- |
+| Baseline (no shaping) | 256.3 +/- 33.7 | 97% | 127.8 | 113.3 |
+| Shaped | 244.6 +/- 41.7 | 90% | 125.7 | 137.8 |
+
+**Shaping did not help here.** The shaped agent scored slightly lower, succeeded less often, and used about the same main-engine fuel (2% fewer firings, within noise) while firing the side engines more. With one seed per run I can't say the gap is real, but there's no evidence for a benefit. The penalty weights were hand-picked and likely need tuning, or the default reward already charges enough for fuel.
+
+**ONNX is faster for single-state inference:** median 0.025 ms with onnxruntime vs 0.35 ms for SB3's `predict` (about 14x), measured on CPU. Part of that gap is SB3's per-call overhead (input checks, tensor conversion), not the network itself.
 
 ## Limitations
 
-- Single seed per configuration, so shaped vs. baseline differences may be noise. Run several seeds before drawing conclusions.
+- One seed per configuration, so the shaped vs. baseline gap may be noise. Run several seeds before drawing conclusions.
 - Shaping weights were picked by hand, not tuned.
 - The API handles one state per request; there is no batching, auth or rate limiting.
 
